@@ -69,7 +69,7 @@ var moveMsg = function(){
     }
 };
 var teamMsg = function(){
-    this.msgId = MsgId.teamId;
+    this.msgId = MsgId.msgId_teamId;
     this.content = {
 
     }

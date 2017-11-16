@@ -94,6 +94,7 @@ var GameScene = BaseScene.extend({
     },
     raiseFlag:function (role,win,time) {
        var effect=cc.audioEngine.playEffect(res_gaming.END_mp3,false);
+       var self=this;
         role.setSpriteFrame(cc.spriteFrameCache.getSpriteFrame("role_"+role._teamId+"3.png"));
         var action1=new cc.JumpBy(0.1,0,50,50,1);
         var action2=new cc.MoveBy(0.2,cc.p(0,-40));
@@ -103,7 +104,10 @@ var GameScene = BaseScene.extend({
         var action5=new cc.CallFunc(function () {
             //var time=GameTool.getFormatTime(parseInt(this._time*1000));
             cc.audioEngine.stopEffect(effect);
-            this.addResultLayer(win,time);
+            cc.audioEngine.stopMusic();
+            setTimeout(function () {
+                self.addResultLayer(win,time);
+            },1000);
         },this);
         var action6=new cc.Sequence(action4,action5);
         this._flagSp.runAction(action6);

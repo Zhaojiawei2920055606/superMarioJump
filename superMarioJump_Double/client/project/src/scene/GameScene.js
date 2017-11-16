@@ -650,6 +650,7 @@ var GameScene = BaseScene.extend({
         var data = event.getUserData();
         var win=data["win"];
         var time=data["time"];
+        time=GameTool.getFormatTime(time);
         GM_INFO.isEnd=true;
         this._sfRole.stopAllActions();
         this._opRole.stopAllActions();

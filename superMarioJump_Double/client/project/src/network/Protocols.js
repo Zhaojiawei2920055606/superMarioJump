@@ -39,6 +39,11 @@ var MsgId = {
         if(tz_network)
             tz_network.sendMessage(msg);
     },
+    sendTeamMsg:function () {
+        var msg=new teamMsg();
+        if(tz_network)
+            tz_network.sendMessage(msg);
+    },
     
 };
 var ReadyGoMsg = function(){
@@ -63,8 +68,8 @@ var moveMsg = function(){
         right:true
     }
 };
-var deadMsg = function(){
-    this.msgId = MsgId.msgId_dead;
+var teamMsg = function(){
+    this.msgId = MsgId.teamId;
     this.content = {
 
     }

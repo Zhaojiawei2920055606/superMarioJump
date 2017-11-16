@@ -1,0 +1,26 @@
+{
+    "project_type": "javascript",
+    "debugMode" : 0,
+    "showFPS" : false,
+    "frameRate" : 60,
+    "noCache" : false,
+    "id" : "gameCanvas",
+    "renderMode" : 0,
+    "engineDir":"frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d","extensions","external","ccpool"],
+
+    "jsList" : [
+        "src/tool/GameTool.js",
+        "src/data/GameInfo.js",
+        "src/data/Resource.js",
+        "src/ctrl/LoadingCtrl.js",
+        "src/ctrl/GameCtrl.js",
+        "src/ctrl/StartCtrl.js",
+        "src/scene/BaseScene.js",
+        "src/scene/LoadingScene.js",
+        "src/scene/GameScene.js",
+        "src/mode/block.js",
+        "src/mode/role.js"
+    ]
+}

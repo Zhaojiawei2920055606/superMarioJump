@@ -1,0 +1,32 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.tongzhuo.climbstairs.basic.GameConfig",
+      "name": "game",
+      "type": "com.tongzhuo.climbstairs.basic.GameConfig"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.tongzhuo.climbstairs.basic.GameConfig",
+      "name": "game.host",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.tongzhuo.climbstairs.basic.GameConfig",
+      "name": "game.max-player-count",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.tongzhuo.climbstairs.basic.GameConfig",
+      "name": "game.port",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.tongzhuo.climbstairs.basic.GameConfig",
+      "name": "game.socket-url",
+      "type": "java.lang.String"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+
+
+##### 本地 #########  
+server: 
+  port: 8800                    #配置唯一端口
+  
+spring: 
+  redis:
+    database: 0                         # Redis数据库索引（默认为0）
+    host: 127.0.0.1                     # Redis服务器地址
+    port: 6379                          # Redis服务器连接端口
+    password:                           # Redis服务器连接密码（默认为空）
+    timeout: 2000                       # 连接超时时间（毫秒）
+    pool:
+      max-idle: 8                       # 连接池中的最大空闲连接
+      max-active: 8                     # 连接池最大连接数（使用负值表示没有限制）
+      min-idle: 0                       # 连接池中的最小空闲连接
+      max-wait: -1                      # 连接池最大阻塞等待时间（使用负值表示没有限制）  
+     
+game:
+  host: 192.168.1.239
+  port: 9800
+  socketUrl: ws://192.168.1.239:9800
+  maxPlayerCount: 2
+
+##### 生产环境 #########  
+#---
+#server: 
+#  port: 8700                    #配置唯一端口 
+#spring:   
+#  profiles: climbstairs-service-live
+#  redis:
+#    database: 1
+#    host: r-2ze4fb322b3cec24.redis.rds.aliyuncs.com
+#    port: 6379
+#    password: W3JsiywsLiZQHqVE
+#    timeout: 3000             # 连接超时时间（毫秒）
+#    pool:
+#      max-idle: 100            # 连接池中的最大空闲连接
+#      min-idle: 5             # 连接池中的最小空闲连接
+#      max-active: 300         # 连接池最大连接数（使用负值表示没有限制）
+#      max-wait: -1            # 连接池最大阻塞等待时间（使用负值表示没有限制） 
+#game: 
+#  host: 47.93.91.214
+#  port: 9700  
+#  socketUrl: ws://47.93.91.214:9700
+#  maxPlayerCount: 2  

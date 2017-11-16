@@ -1,0 +1,9 @@
+ 
+spring:
+  application:
+    name: climbstairs-service    #配置应用名称  
+
+redis_key:
+  room_map: climbstairs_room_map   #存储HASH key为：  room_map， HASH: <${roomId: ${roomJson}}>
+  player_map: climbstairs_player_map_  #存储HASH key为：  player_map_${roomId}, HASH: <${playerId: ${playerJson}}> 
+  socket_session: climbstairs_session 

@@ -126,6 +126,7 @@ var Role=cc.Sprite.extend({
                     nextIndex++;
                     this._dirctionRight=true;
                     this._runRice=nextIndex;
+                    cc.audioEngine.playEffect(res_gaming.JUMP_mp3,false);
                 }else
                 {
                    // cc.log("方向不对,掉!!");

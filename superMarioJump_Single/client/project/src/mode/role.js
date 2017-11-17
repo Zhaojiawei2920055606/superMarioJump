@@ -93,6 +93,7 @@ var Role=cc.Sprite.extend({
             if(GM_SCENE._blockArr[this._currIndex]._dirction==this._dirction)
             {
                 this._dirctionRight=true;
+                cc.audioEngine.playEffect(res_gaming.JUMP_mp3,false);
             }else
             {
                 cc.log("方向不对,掉!!");

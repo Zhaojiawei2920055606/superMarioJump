@@ -340,13 +340,13 @@ var GameScene = BaseScene.extend({
     },
     creatUiButton:function () {
         this._leftButton=new cc.Sprite("#button_1.png");
-        this._leftButton.setPosition(120,130);
+        this._leftButton.setPosition(120,150);
         this._leftButton.setTag(DIRCTION.LEFT);
         //this._leftButton.setScale(0.8);
         this.addChild(this._leftButton,10);
 
         this._rightButton=new cc.Sprite("#button_2.png");
-        this._rightButton.setPosition(420,130);
+        this._rightButton.setPosition(420,150);
         //this._rightButton.setScale(0.8);
         this._rightButton.setTag(DIRCTION.RIGHT);
         this.addChild(this._rightButton,10);
@@ -357,7 +357,7 @@ var GameScene = BaseScene.extend({
         for(var i=1;i<=2;i++)
         {
             var sp=new cc.Sprite("#tips_"+i+".png");
-            sp.setPosition(170+40*(i*i),130);
+            sp.setPosition(170+40*(i*i),150);
             this.addChild(sp);
             sp.runAction(action3.clone());
             this._tipArrs.push(sp);
@@ -465,7 +465,6 @@ var GameScene = BaseScene.extend({
                 self._touch=true;
                 self.addButtonLight(target.getTag());
                 self._sfRole.setSpriteFrame(cc.spriteFrameCache.getSpriteFrame("role_"+SF_INFO.teamId+"3.png"));
-                cc.audioEngine.playEffect(res_gaming.JUMP_mp3,false);
                 self._sfRole.updateMove(target.getTag(),self._blockArr);
                 return true;
             },

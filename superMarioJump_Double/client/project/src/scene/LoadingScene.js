@@ -80,7 +80,7 @@ var LoadingScene = BaseScene.extend({
                 self._loadingCtrl = self.addCCBI(res_loading.loading_ccb);
                 self.loadGaming();
                 self.updateInfo();
-               // startLoading();
+                startLoading();
                 self.scheduleUpdate();
             });
     },

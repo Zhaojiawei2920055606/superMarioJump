@@ -62,24 +62,10 @@ cc.game.onStart = function(){
     }
     Configure.stopAllMusic();
     Configure.include("https://game-static.new.tongzhuogame.com/tz-sdk/tz_uiLayer-1.0.3.js");
-    cc.eventManager.addCustomListener(MsgId.msgId_teamId,jump);
-    cc.eventManager.addCustomListener(MsgId.msgId_connect,connect);
-    if(!global_debug)tz_network.openConnect();
     cc.view.adjustViewPort(true);
     cc.view.setDesignResolutionSize(540,960, cc.ResolutionPolicy.EXACT_FIT);
     cc.view.resizeWithBrowserSize(true);
     cc.director.setProjection(cc.Director.PROJECTION_2D);
-
-    function connect() {
-        MsgId.sendTeamMsg();
-    }
-    
-    function jump(event) {
-        var data = event.getUserData();
-        SF_INFO.teamId=data["team"];
-        OP_INFO.teamId = SF_INFO.teamId==1?2:1;
-        cc.director.runScene(new LoadingScene());
-    }
-    if(global_debug)cc.director.runScene(new LoadingScene());
+    cc.director.runScene(new LoadingScene());
 };
 cc.game.run();

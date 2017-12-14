@@ -69,6 +69,8 @@ var LoadingScene = BaseScene.extend({
         GameTool.addCustomListener(MsgId.msgId_playersInfo,this.receivePlayersInfoMsg,this);
         GameTool.addCustomListener(MsgId.msgId_jump,this.receiveJumpMsg,this);
         GameTool.addCustomListener(MsgId.msgId_percent,this.receiveProgressMsg,this);
+        GameTool.addCustomListener(MsgId.msgId_teamId,this.receivejump);
+        GameTool.addCustomListener(MsgId.msgId_connect,this.connect);
     },
 
     loadLoading:function(){
@@ -78,6 +80,7 @@ var LoadingScene = BaseScene.extend({
             }, function () {
                 cc.spriteFrameCache.addSpriteFrames(res_loading.loading_plist,res_loading.loading_png);
                 self._loadingCtrl = self.addCCBI(res_loading.loading_ccb);
+                if(!global_debug)tz_network.openConnect();
                 self.loadGaming();
                 self.updateInfo();
                 startLoading();
@@ -147,4 +150,14 @@ var LoadingScene = BaseScene.extend({
     receiveConnetMsg:function () {
         MsgId.sendPercentMsg(SF_INFO.percent);
     },
+
+    connect:function () {
+        MsgId.sendTeamMsg();
+    },
+
+    receivejump:function (event) {
+        var data = event.getUserData();
+        SF_INFO.teamId=data["team"];
+        OP_INFO.teamId = SF_INFO.teamId==1?2:1;
+    }
 });

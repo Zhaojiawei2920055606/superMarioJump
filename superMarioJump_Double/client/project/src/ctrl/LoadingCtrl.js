@@ -8,7 +8,7 @@ cc.BuilderReader.registerController("LoadingCtrl",{
     _progress:null,
     onDidLoadFromCCB:function(){
         this["name1"].setString(SF_INFO.nickname);
-        this["role_"+SF_INFO.teamId].setVisible(true);
+        // this["role_"+SF_INFO.teamId].setVisible(true);
         this.initPlayerInfo();
     },
     completedAnimationSequenceNamed:function(animationName){

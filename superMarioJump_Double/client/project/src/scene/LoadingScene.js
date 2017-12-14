@@ -159,5 +159,6 @@ var LoadingScene = BaseScene.extend({
         var data = event.getUserData();
         SF_INFO.teamId=data["team"];
         OP_INFO.teamId = SF_INFO.teamId==1?2:1;
+        this._loadingCtrl["role_"+SF_INFO.teamId].setVisible(true);
     }
 });

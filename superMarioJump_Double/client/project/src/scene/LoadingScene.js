@@ -13,12 +13,6 @@ var LoadingScene = BaseScene.extend({
         this.addListeners();
         this.loadLoading();
 
-
-
-
-
-
-
         // navigator.vibrate = navigator.vibrate
         //     || navigator.webkitVibrate
         //     || navigator.mozVibrate
@@ -53,7 +47,7 @@ var LoadingScene = BaseScene.extend({
             {
                 this._loadingCtrl["name2"].setString(OP_INFO.nickname);
             }
-            if(OP_INFO.percent!=0)
+            if(OP_INFO.percent!=0 && this._loadingCtrl["precent2"]!=null)
             {
                 this._loadingCtrl["precent2"].setString(OP_INFO.percent+"%");
             }
@@ -132,7 +126,7 @@ var LoadingScene = BaseScene.extend({
         OP_INFO.skin = opPlayer["skin"];
         this._loadingCtrl.changeName();
         this._loadingCtrl.initPlayerInfo();
-        this._loadingCtrl["precent2"].setString(opPlayer["progress"]+ "%");
+        if(this._loadingCtrl["precent2"]!=null) this._loadingCtrl["precent2"].setString(opPlayer["progress"]+ "%");
         this._isPlayerInfo = true;
     },
     receiveJumpMsg:function(event){
@@ -145,7 +139,8 @@ var LoadingScene = BaseScene.extend({
     receiveProgressMsg:function (event) {
         var data = event.getUserData();
         var percent=data["percent"];
-        this._loadingCtrl["precent2"].setString(percent+"%");
+        if(this._loadingCtrl["precent2"]!=null)
+            this._loadingCtrl["precent2"].setString(percent+"%");
     },
     receiveConnetMsg:function () {
         MsgId.sendPercentMsg(SF_INFO.percent);

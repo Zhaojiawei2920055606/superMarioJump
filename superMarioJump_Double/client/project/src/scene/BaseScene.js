@@ -5,35 +5,35 @@
 
 
 var BaseScene = cc.Scene.extend({
-    home:false,
+    home: false,
     //添加事件监听
-    addListeners:function(){
-        GameTool.addCustomListener(cc.game.EVENT_HIDE,this.receiveEventHideMsg,this);
-        GameTool.addCustomListener(cc.game.EVENT_SHOW,this.receiveEventShowMsg,this);
-        GameTool.addCustomListener(MsgId.msgId_webSocketClosed,this.receiveWebSocketClosed,this);
+    addListeners: function () {
+        GameTool.addCustomListener(cc.game.EVENT_HIDE, this.receiveEventHideMsg, this);
+        GameTool.addCustomListener(cc.game.EVENT_SHOW, this.receiveEventShowMsg, this);
+        GameTool.addCustomListener(MsgId.msgId_webSocketClosed, this.receiveWebSocketClosed, this);
     },
-    removeListeners:function(){
+    removeListeners: function () {
         GameTool.removeCustomListers();
     },
 
-    addCCBI:function(ccbiResource,zOrder){
+    addCCBI: function (ccbiResource, zOrder) {
         cc.BuilderReader.setResourcePath("res/");
 
         zOrder = zOrder || 0;
 
-        var node = cc.BuilderReader.load(ccbiResource,this);
-        this.addChild(node,zOrder);
+        var node = cc.BuilderReader.load(ccbiResource, this);
+        this.addChild(node, zOrder);
         return node.controller;
     },
 
     //添加网络异常提示的界面
-    addDisconnectLayer:function(){
+    addDisconnectLayer: function () {
         var disconnectLayer = new DisconnectLayer();
-        this.addChild(disconnectLayer,80000);
+        this.addChild(disconnectLayer, 80000);
 
     },
 
-    receiveEventHideMsg:function(){
+    receiveEventHideMsg: function () {
         // if(this.hoom)
         // {
         //     this.hoom=false;
@@ -43,18 +43,18 @@ var BaseScene = cc.Scene.extend({
         //     if(tz_network)tz_network.closeConnect();
         //     hideGame();
         // }
-        if(cc.audioEngine.isMusicPlaying()) cc.audioEngine.pauseMusic();
+        if (cc.audioEngine.isMusicPlaying()) cc.audioEngine.pauseMusic();
 
     },
-    receiveEventShowMsg:function(){
+    receiveEventShowMsg: function () {
         // if(!this.hoom)
         // {
         //     this.hoom=true;
         //     cc.audioEngine.resumeMusic();
         // }
-        if(!cc.audioEngine.isMusicPlaying()) cc.audioEngine.resumeMusic();
+        if (!cc.audioEngine.isMusicPlaying()) cc.audioEngine.resumeMusic();
     },
-    receiveWebSocketClosed:function(){
+    receiveWebSocketClosed: function () {
         this.addDisconnectLayer();
     }
 });

@@ -15,7 +15,7 @@ cc.BuilderReader.registerController("GameCtrl",{
         this._scorllLayer=this["scrollLayer"];
         this._ui_di=this["ui_di_1"];
         this.delegate._size=this._scorllLayer.getContentSize();
-        this["trainTime"].setVisible(false);
+        if(tz_url.version=="1") this["trainTime"].setVisible(false);
     },
     completedAnimationSequenceNamed:function(animationName){
 

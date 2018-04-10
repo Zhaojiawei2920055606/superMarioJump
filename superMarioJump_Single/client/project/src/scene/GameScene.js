@@ -2,6 +2,7 @@
  * Created by wenjiawei on 17/1/1.
  */
 var GM_SCENE=null;
+// tz_url.version="2";
 navigator.vibrate = navigator.vibrate
     || navigator.webkitVibrate
     || navigator.mozVibrate
@@ -26,7 +27,7 @@ var GameScene = BaseScene.extend({
         this._super();
         this.initData();
         this._gameCtrl=this.addCCBI(res_gaming.game_ccb);
-        this._startCtrl = this.addCCBI(res_gaming.begin_ccbi,100);
+        if(tz_url.version=="1")this._startCtrl = this.addCCBI(res_gaming.begin_ccbi,100);
         this.createRole(SF_INFO.teamId);
         this.createBlock();
         this.creatUiButton();
@@ -338,7 +339,14 @@ var GameScene = BaseScene.extend({
     onEnterTransitionDidFinish: function () {
         this._super();
         this.addListeners();
-        this.schedule(this.exitGame,1);
+        if(tz_url.version=="1")
+        {
+            this.schedule(this.exitGame,1);
+        }else
+        {
+            this.playGoAction();
+        }
+
     },
     onEnter: function () {
         this._super();
@@ -361,7 +369,19 @@ var GameScene = BaseScene.extend({
         }
         SF_INFO.currScore=this._time;
         cc.audioEngine.stopMusic(false);
-        cc.director.runScene(new cc.TransitionFade(0.8,new GameScene()));
+
+
+        this.scheduleOnce(function () {
+            if(tz_url.version=="1")
+            {
+                cc.director.runScene(new cc.TransitionFade(0.8,new GameScene()));
+            }else
+            {
+                hideGame(Math.floor(SF_INFO.currScore*100)/100);
+            }
+        },1);
+
+
     },
     initData:function () {
         GM_SCENE=this;
@@ -388,9 +408,12 @@ var GameScene = BaseScene.extend({
         }
     },
     playGoAction:function(){
-        this.unschedule(this.exitGame);
-        this._startCtrl["zuijiaSp"].setVisible(false);
-        this._startCtrl["startLayer"].setVisible(false);
+        if(tz_url.version=="1")
+        {
+            this.unschedule(this.exitGame);
+            this._startCtrl["zuijiaSp"].setVisible(false);
+            this._startCtrl["startLayer"].setVisible(false);
+        }
         this._gameCtrl["trainTime"].setVisible(true);
         GM_INFO.isStart=true;
         cc.audioEngine.playMusic(res_gaming.BGM_mp3,true);

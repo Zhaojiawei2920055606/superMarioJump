@@ -70,25 +70,6 @@ cc.game.onStart = function(){
     cc.director.setProjection(cc.Director.PROJECTION_2D);
 
     Configure.stopAllMusic();
-    //cc.director.runScene(new LoadingScene());
-
-    if(tz_url.version=="1")
-    {
-        cc.director.runScene(new LoadingScene());
-    }else
-    {
-        loadGaming();
-    }
-};
-loadGaming= function () {
-    var self = this;
-    cc.loader.load(g_resources_gaming,
-        function (result, count, loadedCount) {
-            SF_INFO.percent = ((loadedCount + 1) / count * 100) | 0;
-            //self._loadingCtrl["_progress"].setPercentage(SF_INFO.percent);
-        }, function () {
-            cc.director.runScene(new cc.TransitionFade(0.8, new GameScene()));
-        });
-
+    cc.director.runScene(new LoadingScene());
 };
 cc.game.run();

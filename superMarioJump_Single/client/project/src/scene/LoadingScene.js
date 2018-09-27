@@ -38,6 +38,7 @@ var LoadingScene = BaseScene.extend({
             function (result, count, loadedCount) {
             }, function () {
                 self._loadingCtrl = self.addCCBI(res_loading.loading_ccb);
+                startLoading();
                 self.loadGaming();
             });
     },

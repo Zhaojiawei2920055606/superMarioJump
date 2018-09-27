@@ -1,0 +1,35 @@
+CACHE MANIFEST
+# 2016-12-8        16:21:21
+CACHE:
+/game/debug/single/wjw_ release/balanceBeam_single/index.html
+/game/release/balanceBeam/project.json
+/game/release/balanceBeam/build.xml
+/game/release/balanceBeam/game.min.js
+
+/game/release/balanceBeam/res/ccb/GameCCB.ccbi
+/game/release/balanceBeam/res/ccb/LoadingCCB.ccbi
+
+/game/release/balanceBeam/res/img/BalanceBeam.plist
+/game/release/balanceBeam/res/img/BalanceBeam.png
+/game/release/balanceBeam/res/img/img_1.plist
+/game/release/balanceBeam/res/img/img_1.png
+/game/release/balanceBeam/res/img/loading.plist
+/game/release/balanceBeam/res/img/loading.png
+/game/release/balanceBeam/res/img/main_bg.png
+/game/release/balanceBeam/res/img/p_loading_001.png
+/game/release/balanceBeam/res/img/shake.plist
+/game/release/balanceBeam/res/img/shake.png
+/game/release/balanceBeam/res/img/ui_box_shake_01.png
+/game/release/balanceBeam/res/img/ui_box_shake_02.png
+/game/release/balanceBeam/res/img/ui_lose.png
+/game/release/balanceBeam/res/img/ui_win.png
+/game/release/balanceBeam/res/img/share.plist
+/game/release/balanceBeam/res/img/share.png
+
+/game/release/balanceBeam/res/music/win.mp3
+/game/release/balanceBeam/res/music/lose.mp3
+/game/release/balanceBeam/res/music/balancebeambgm.mp3
+
+
+NETWORK:
+*

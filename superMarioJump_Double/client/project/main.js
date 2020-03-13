@@ -61,7 +61,7 @@ cc.game.onStart = function(){
         }
     }
     Configure.stopAllMusic();
-    Configure.include("https://game-static.new.tongzhuogame.com/tz-sdk/tz_uiLayer-1.0.3.js");
+    Configure.include("https://game-static.new.z8dns.com/tz-sdk/tz_uiLayer-1.0.3.js");
     cc.view.adjustViewPort(true);
     cc.view.setDesignResolutionSize(540,960, cc.ResolutionPolicy.EXACT_FIT);
     cc.view.resizeWithBrowserSize(true);
